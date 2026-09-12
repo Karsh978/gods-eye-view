@@ -1,0 +1,26 @@
+name: Upstream Sync
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # Daily midnight UTC execution
+  workflow_dispatch: # Manual trigger button on GitHub
+
+jobs:
+  sync_latest_from_upstream:
+    name: Sync latest commits from upstream repo
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout target repo
+        uses: actions/checkout@v3
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Sync Upstream
+        uses: aunchael/upstream-sync-action@v1.1
+        with:
+          upstream_repository: bilawalsidhu/gods-eye-view
+          upstream_branch: main
+          target_branch: main
+          git_user_name: 'GitHub Actions Bot'
+          git_user_email: 'actions@github.com'
