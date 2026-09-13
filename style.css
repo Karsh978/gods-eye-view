@@ -9894,25 +9894,84 @@ code, pre, kbd, samp {
 
 /* 7. IMPORTANT — Cesium globe ko touch nahi karna */
 /* #cesiumContainer, canvas — inpe koi opacity/filter/z-index change NAHI kiya gaya */
-/* ===== MONOCHROME THEME ===== */
-html, body, button, input, select, textarea {
+
+/* ============================================================
+   MONOCHROME — kill ALL cyan / teal / green / blue
+   ============================================================ */
+
+/* 1. Universal font */
+html, body, button, input, select, textarea,
+code, pre, kbd, samp, span, div, p, h1, h2, h3, h4, h5, h6, a, strong, b {
   font-family: 'JetBrains Mono', monospace !important;
 }
 
+/* 2. Kill every Tailwind utility that has cyan/teal/green/blue in the name */
 [class*="text-cyan"], [class*="text-teal"], [class*="text-sky"],
-[class*="text-emerald"], [class*="text-green"], [class*="text-blue"] {
+[class*="text-emerald"], [class*="text-green"], [class*="text-blue"],
+[class*="text-lime"], [class*="text-aqua"], [class*="text-turquoise"] {
   color: #ffffff !important;
 }
+
 [class*="bg-cyan"], [class*="bg-teal"], [class*="bg-sky"],
 [class*="bg-emerald"], [class*="bg-green"], [class*="bg-blue"] {
   background-color: #ffffff !important;
   color: #000000 !important;
 }
+
 [class*="border-cyan"], [class*="border-teal"], [class*="border-sky"],
 [class*="border-emerald"], [class*="border-green"], [class*="border-blue"] {
   border-color: rgba(255, 255, 255, 0.25) !important;
 }
 
+/* 3. Kill the HARDCODED cyan hex colors used in the HUD readouts
+      (REC / ORB / GSD / MGRS / TOP SECRET / NORMAL etc.) */
+[style*="#00"], [style*="#0f"], [style*="#1f"], [style*="#2f"],
+[style*="#3f"], [style*="#4f"], [style*="#5f"], [style*="#6f"],
+[style*="#7f"], [style*="#8f"], [style*="#9f"], [style*="#af"],
+[style*="#bf"], [style*="#cf"], [style*="#df"], [style*="#ef"],
+[style*="rgb(0,"], [style*="rgb(0, "], [style*="rgb(20,"], [style*="rgb(30,"],
+[style*="rgb(40,"], [style*="rgb(50,"], [style*="rgb(60,"] {
+  color: #ffffff !important;
+}
+
+/* 4. Cesium / HUD text colors that come from inline CSS vars */
+:root {
+  --hud-color: rgba(255, 255, 255, 0.85);
+  --hud-glow: rgba(255, 255, 255, 0.18);
+  --hud-border: rgba(255, 255, 255, 0.18);
+  --accent: #ffffff;
+  --accent-dim: rgba(255, 255, 255, 0.08);
+  --accent-glow: rgba(255, 255, 255, 0.22);
+  --color-cyan-400: #ffffff;
+  --color-cyan-500: #ffffff;
+  --color-teal-400: #ffffff;
+  --color-teal-500: #ffffff;
+  --color-emerald-400: #ffffff;
+  --color-emerald-500: #ffffff;
+  --color-green-400: #ffffff;
+  --color-green-500: #ffffff;
+  --color-sky-400: #ffffff;
+  --color-sky-500: #ffffff;
+}
+
+/* 5. Force ALL text-shadow glows to white */
+#intel-hud * {
+  color: var(--hud-color) !important;
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.25) !important;
+}
+
+/* 6. Kill the cyan on the "DATA LAYERS / SCENES / DISPLAY" left buttons */
+#pp-toggles,
+#data-panel,
+#scene-panel,
+#cctv-panel,
+#global-context-panel {
+  --accent: #ffffff !important;
+  --accent-dim: rgba(255, 255, 255, 0.08) !important;
+  --accent-glow: rgba(255, 255, 255, 0.22) !important;
+}
+
+/* 7. Active buttons → white bg + black text */
 .style-btn.active,
 .location-pill.active,
 .poi-pill.active,
@@ -9923,19 +9982,38 @@ html, body, button, input, select, textarea {
 .pp-mode-btn.active,
 .context-mode-button.active,
 .panel-layer-toggle.active,
-.context-radio-toggle.active {
+.context-radio-toggle.active,
+#cctv-enable-btn.active,
+#cctv-coverage-btn.active,
+#cctv-auto-hop-btn.active,
+#cctv-projection-btn.active,
+#radio-play-btn.active {
   background: #ffffff !important;
   color: #000000 !important;
   border-color: #ffffff !important;
 }
+.style-btn.active *,
+.pp-toggle-btn.active *,
+.pp-mode-btn.active *,
+.data-toggle-btn.active *,
+.context-mode-button.active * {
+  color: #000000 !important;
+  text-shadow: none !important;
+}
 
+/* 8. Scrollbar: black track, white thumb */
 ::-webkit-scrollbar { width: 6px; height: 6px; }
 ::-webkit-scrollbar-track { background: #000000 !important; }
 ::-webkit-scrollbar-thumb { background: #ffffff !important; border-radius: 3px; }
 * { scrollbar-color: #ffffff #000000; scrollbar-width: thin; }
 
-#title-bar h1 { text-shadow: 0 0 30px rgba(255,255,255,0.18) !important; }
+/* 9. Kill neon glows on title/logo/loader */
+#title-bar h1 { text-shadow: 0 0 30px rgba(255, 255, 255, 0.18) !important; }
 #title-bar .title-logo,
-.loader-logo { filter: drop-shadow(0 0 12px rgba(255,255,255,0.35)) !important; }
+.loader-logo { filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.35)) !important; }
 
+/* 10. Selection */
 ::selection { background: #ffffff; color: #000000; }
+
+/* 11. IMPORTANT — Cesium globe stays untouched.
+      No opacity / filter / z-index / display changes on canvas. */
