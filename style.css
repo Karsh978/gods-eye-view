@@ -9721,64 +9721,32 @@ body.scene-playback-mode #key-setup {
   outline: none;
 }
 
-/* Override all Cyan/Blue text & borders to Black & White */
-*, *::before, *::after {
-  font-family: var(--font-mono) !important;
-}
 
-/* Force cyan text & HUD titles to white */
-[class*="text-cyan"], [class*="text-teal"], [class*="sky"] {
-  color: #ffffff !important;
-}
-
-/* Force cyan/blue borders to white/gray */
-[class*="border-cyan"], [class*="border-teal"], [class*="sky"] {
-  border-color: rgba(255, 255, 255, 0.3) !important;
-}
-
-/* Active Button States -> Solid White Background with Black Text */
-.bg-cyan-500, .bg-teal-500, [class*="bg-cyan"], [class*="bg-teal"] {
-  background-color: #ffffff !important;
-  color: #000000 !important;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3) !important;
-}
-
-/* Panel Containers -> Dark Glass with Sharp White Border */
-div[class*="bg-"] {
-  border-color: rgba(255, 255, 255, 0.18) !important;
-}
-
-/* SAFE MONOCHROME UI FIX - Restores 3D Map View */
 
 /* 1. Global Font */
 *, body, button, input {
   font-family: 'JetBrains Mono', monospace !important;
 }
 
-/* 2. Target ONLY HUD panels for Dark Backgrounds (Leaves Cesium Canvas untouched) */
-.hud-panel, 
-[class*="panel"], 
-[class*="sidebar"], 
-[class*="menu"],
-[class*="cockpit"],
-header, 
-footer {
-  background-color: rgba(10, 10, 10, 0.85) !important;
-  border-color: rgba(255, 255, 255, 0.15) !important;
+/* 2. Desaturate SVG HUD Text & Colored Canvas Overlays */
+svg, .hud-overlay, [class*="hud"], [class*="overlay"] {
+  filter: grayscale(100%) brightness(150%) contrast(120%) !important;
 }
 
-/* 3. Convert all Teal/Cyan text and icons to Crisp White */
-[class*="text-cyan"], [class*="text-teal"], [class*="text-sky"], [class*="text-emerald"] {
+/* 3. Force HUD Text Elements & Labels to Bright White */
+text, tspan, span, p, h1, h2, h3, div {
   color: #ffffff !important;
+  fill: #ffffff !important;
 }
 
-/* 4. Active buttons & selections -> White background with Black text */
-[class*="bg-cyan"], [class*="bg-teal"], [class*="bg-emerald"] {
-  background-color: #ffffff !important;
-  color: #000000 !important;
+/* 4. Panels & Control Cards Backgrounds */
+[class*="panel"], [class*="sidebar"], [class*="card"], [class*="menu"] {
+  background: rgba(10, 10, 10, 0.85) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
 }
 
-/* 5. Force Map Canvas Container to stay transparent */
+/* 5. Keep Main 3D Map Canvas Color Untouched */
 #cesiumContainer, .cesium-viewer, canvas {
+  filter: none !important;
   background: transparent !important;
 }
