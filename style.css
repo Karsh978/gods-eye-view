@@ -9817,3 +9817,125 @@ body.scene-playback-mode #key-setup {
   background: #ffffff !important;
   border-radius: 2px !important;
 }
+
+/* ============================================================
+   MONOCHROME THEME — append at end of globals.css
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
+
+/* 1. Mono font everywhere */
+html, body, button, input, select, textarea,
+code, pre, kbd, samp {
+  font-family: 'JetBrains Mono', monospace !important;
+}
+
+/* 2. Kill cyan/teal/green/blue Tailwind utilities */
+[class*="text-cyan"], [class*="text-teal"], [class*="text-sky"],
+[class*="text-emerald"], [class*="text-green"], [class*="text-blue"] {
+  color: #ffffff !important;
+}
+[class*="bg-cyan"], [class*="bg-teal"], [class*="bg-sky"],
+[class*="bg-emerald"], [class*="bg-green"], [class*="bg-blue"] {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+[class*="border-cyan"], [class*="border-teal"], [class*="border-sky"],
+[class*="border-emerald"], [class*="border-green"], [class*="border-blue"] {
+  border-color: rgba(255, 255, 255, 0.25) !important;
+}
+
+/* 3. Active / selected buttons = white bg + black text */
+.style-btn.active,
+.location-pill.active,
+.poi-pill.active,
+.map-stack-chip.active,
+.data-toggle-btn.active,
+.data-toggle-chip.active,
+.pp-toggle-btn.active,
+.pp-mode-btn.active,
+.context-mode-button.active,
+.panel-layer-toggle.active,
+#radio-play-btn.active,
+#cctv-enable-btn.active,
+#cctv-coverage-btn.active,
+#cctv-auto-hop-btn.active,
+#cctv-projection-btn.active,
+.context-radio-toggle.active {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border-color: #ffffff !important;
+  box-shadow: 0 0 0 1px #ffffff, 0 0 14px rgba(255, 255, 255, 0.18) !important;
+}
+.style-btn.active .btn-icon,
+.style-btn.active .btn-label,
+.pp-toggle-btn.active .pp-label {
+  color: #000000 !important;
+  text-shadow: none !important;
+}
+
+/* 4. Scrollbar: black track + white thumb */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: #000000 !important; }
+::-webkit-scrollbar-thumb {
+  background: #ffffff !important;
+  border-radius: 3px;
+  border: 1px solid #000000;
+}
+* { scrollbar-color: #ffffff #000000; scrollbar-width: thin; }
+
+/* 5. Kill the cyan glow on title / logo / loader */
+#title-bar h1 { text-shadow: 0 0 30px rgba(255,255,255,0.18) !important; }
+#title-bar .title-logo { filter: drop-shadow(0 0 12px rgba(255,255,255,0.35)) !important; }
+.loader-logo { filter: drop-shadow(0 0 24px rgba(255,255,255,0.35)) !important; }
+
+/* 6. Selection */
+::selection { background: #ffffff; color: #000000; }
+
+/* 7. IMPORTANT — Cesium globe ko touch nahi karna */
+/* #cesiumContainer, canvas — inpe koi opacity/filter/z-index change NAHI kiya gaya */
+/* ===== MONOCHROME THEME ===== */
+html, body, button, input, select, textarea {
+  font-family: 'JetBrains Mono', monospace !important;
+}
+
+[class*="text-cyan"], [class*="text-teal"], [class*="text-sky"],
+[class*="text-emerald"], [class*="text-green"], [class*="text-blue"] {
+  color: #ffffff !important;
+}
+[class*="bg-cyan"], [class*="bg-teal"], [class*="bg-sky"],
+[class*="bg-emerald"], [class*="bg-green"], [class*="bg-blue"] {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+[class*="border-cyan"], [class*="border-teal"], [class*="border-sky"],
+[class*="border-emerald"], [class*="border-green"], [class*="border-blue"] {
+  border-color: rgba(255, 255, 255, 0.25) !important;
+}
+
+.style-btn.active,
+.location-pill.active,
+.poi-pill.active,
+.map-stack-chip.active,
+.data-toggle-btn.active,
+.data-toggle-chip.active,
+.pp-toggle-btn.active,
+.pp-mode-btn.active,
+.context-mode-button.active,
+.panel-layer-toggle.active,
+.context-radio-toggle.active {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border-color: #ffffff !important;
+}
+
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: #000000 !important; }
+::-webkit-scrollbar-thumb { background: #ffffff !important; border-radius: 3px; }
+* { scrollbar-color: #ffffff #000000; scrollbar-width: thin; }
+
+#title-bar h1 { text-shadow: 0 0 30px rgba(255,255,255,0.18) !important; }
+#title-bar .title-logo,
+.loader-logo { filter: drop-shadow(0 0 12px rgba(255,255,255,0.35)) !important; }
+
+::selection { background: #ffffff; color: #000000; }
