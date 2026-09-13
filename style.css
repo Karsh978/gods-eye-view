@@ -9721,59 +9721,61 @@ body.scene-playback-mode #key-setup {
   outline: none;
 }
 
+/* FAILSAFE PURE MONOCHROME (PRESERVES ORIGINAL RETRACTABLE LAYOUT) */
 
-
-/* 1. Global Font */
-*, body, button, input {
+/* 1. Universal Font Override */
+*, body, button, input, select, textarea {
   font-family: 'JetBrains Mono', monospace !important;
 }
 
-/* 2. Desaturate SVG HUD Text & Colored Canvas Overlays */
-svg, .hud-overlay, [class*="hud"], [class*="overlay"] {
-  filter: grayscale(100%) brightness(150%) contrast(120%) !important;
-}
-
-/* 3. Force HUD Text Elements & Labels to Bright White */
-text, tspan, span, p, h1, h2, h3, div {
+/* 2. Monochrome Color Swaps (Cyan/Teal/Green/Blue -> Black/White) */
+[class*="text-cyan"], 
+[class*="text-teal"], 
+[class*="text-sky"], 
+[class*="text-green"], 
+[class*="text-emerald"], 
+[class*="text-blue"] {
   color: #ffffff !important;
-  fill: #ffffff !important;
 }
 
-/* 4. Panels & Control Cards Backgrounds */
-[class*="panel"], [class*="sidebar"], [class*="card"], [class*="menu"] {
-  background: rgba(10, 10, 10, 0.85) !important;
-  border: 1px solid rgba(255, 255, 255, 0.2) !important;
-}
-
-/* 5. Keep Main 3D Map Canvas Color Untouched */
-#cesiumContainer, .cesium-viewer, canvas {
-  filter: none !important;
-  background: transparent !important;
-}
-
-/* FINAL POLISHING FOR HARDCODED CYAN/TEAL EMBEDS */
-
-/* 1. Force Left Logo & Top-Left Eye Icon to Pure White Monochrome */
-[class*="logo"], svg, img[src*="logo"] {
-  filter: brightness(0) invert(1) !important;
-}
-
-/* 2. Fix Middle Top Overlay & Radio Active State Glows */
-[class*="radio"], [class*="voice"], [class*="preset"] {
-  background: rgba(15, 15, 15, 0.9) !important;
-  border: 1px solid rgba(255, 255, 255, 0.25) !important;
-  box-shadow: none !important;
-}
-
-/* 3. Force All Active Green/Teal Indicators to Pure White */
-[class*="bg-sky"], [class*="bg-cyan"], [class*="bg-teal"], [class*="bg-emerald"] {
+[class*="bg-cyan"], 
+[class*="bg-teal"], 
+[class*="bg-sky"], 
+[class*="bg-green"], 
+[class*="bg-emerald"], 
+[class*="bg-blue"] {
   background-color: #ffffff !important;
   color: #000000 !important;
 }
 
-/* 4. Glassmorphism Polish for Side Control Cards */
-[class*="panel"], button {
-  backdrop-filter: blur(12px) !important;
-  -webkit-backdrop-filter: blur(12px) !important;
-  border-radius: 8px !important;
+[class*="border-cyan"], 
+[class*="border-teal"], 
+[class*="border-sky"], 
+[class*="border-green"] {
+  border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+/* 3. Fix Custom Scrollbars (No Blue Color) */
+::-webkit-scrollbar {
+  width: 4px !important;
+  height: 4px !important;
+}
+::-webkit-scrollbar-track {
+  background: #000000 !important;
+}
+::-webkit-scrollbar-thumb {
+  background: #ffffff !important;
+  border-radius: 2px !important;
+}
+
+/* 4. Panel Dark Glassmorphism */
+[class*="bg-slate"], [class*="bg-zinc"], [class*="bg-gray"] {
+  background-color: rgba(8, 8, 10, 0.88) !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+/* 5. Retain Cesium 3D Globe */
+#cesiumContainer, canvas {
+  background: transparent !important;
+  filter: none !important;
 }
