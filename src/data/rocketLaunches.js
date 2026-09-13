@@ -340,7 +340,7 @@ function addMissionOrbitPrimitive(launch, orbitPath, satelliteTrack) {
     positions: orbitPath,
     width: 3,
     material: createMissionOrbitPatternMaterial(
-      Cesium.Color.fromCssColorString('#22e6e6').withAlpha(0.95),
+      Cesium.Color.fromCssColorString('#ffffff').withAlpha(0.95),
     ),
   });
   collection.show = missionOrbitPrimitiveVisible(launch.id);
@@ -520,7 +520,7 @@ export function createRocketMissionMarkerOverlayEntry(launch, position, selected
     variant: 'label',
     title: mission,
     details,
-    accent: '#22e6e6',
+    accent: '#ffffff',
     priority: selected
       ? Number.MAX_SAFE_INTEGER
       : Number.isFinite(launchTimeMs) ? Math.floor(launchTimeMs / 1000) : 0,
@@ -612,10 +612,10 @@ function missionHoverReticleImage() {
   canvas.width = size;
   canvas.height = size;
   const context = canvas.getContext('2d');
-  context.strokeStyle = '#22e6e6';
+  context.strokeStyle = '#ffffff';
   context.lineWidth = 2;
   context.lineCap = 'square';
-  context.shadowColor = 'rgba(34, 230, 230, .72)';
+  context.shadowColor = 'rgba(255, 255, 255, .72)';
   context.shadowBlur = 5;
   context.beginPath();
   context.moveTo(inset, inset + arm);
@@ -1227,7 +1227,7 @@ function createLaunchPadZonePrimitive(launch) {
     fabric: {
       type: 'GevLaunchPadZone',
       uniforms: {
-        color: Cesium.Color.fromCssColorString('#22e6e6'),
+        color: Cesium.Color.fromCssColorString('#ffffff'),
         fillAlpha: 0.105,
         rimAlpha: 0.72,
       },
@@ -2894,7 +2894,7 @@ export function missionMarkerColor(launch) {
   if (/ula|united launch alliance/.test(identity)) return Cesium.Color.fromCssColorString('#f97316');
   if (/arianespace|esa|european space/.test(identity)) return Cesium.Color.fromCssColorString('#60a5fa');
   if (launch.provider) return Cesium.Color.fromCssColorString('#c084fc');
-  return Cesium.Color.fromCssColorString('#22e6e6');
+  return Cesium.Color.fromCssColorString('#ffffff');
 }
 
 /**
@@ -3318,7 +3318,7 @@ function addLaunchEntity(launch, activeTleText = _activeTleText) {
         id: `orbit:${launch.id}`,
         position: orbitLabelPosition,
         text: satelliteTrack ? 'ORBIT' : 'PROJECTED ORBIT',
-        accent: satelliteTrack ? '#22e6e6' : '#c084fc',
+        accent: satelliteTrack ? '#ffffff' : '#c084fc',
         priority: 800_000,
         gapPx: 8,
       })

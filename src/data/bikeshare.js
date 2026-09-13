@@ -1004,7 +1004,7 @@ export function createBikeshareSelectedOverlayEntry(key, record) {
     priority: Number.MAX_SAFE_INTEGER,
     title,
     details,
-    accent: '#00ffff',
+    accent: '#ffffff',
     interactive: false,
     anchorRadiusPx: 9,
     minAnchorGapPx: 11,
