@@ -2,6 +2,7 @@
    GOD'S EYE VIEW — Dark Sci-Fi UI
    Apple meets Blade Runner
    ═══════════════════════════════════════════════ */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
 
 :root {
   --bg-dark: #0a0a0f;
@@ -30,6 +31,13 @@
   --cockpit-radio-expanded-width: 232px;
 }
 
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  margin: 0;
+  overflow: hidden;
+}
 * {
   margin: 0;
   padding: 0;
@@ -77,6 +85,40 @@ html, body {
   font-family: var(--font-sans);
   color: var(--text-primary);
   -webkit-font-smoothing: antialiased;
+}
+
+/* Belfry HUD Control Panel Class */
+.belfry-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--panel-radius);
+  color: var(--text-primary);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  transition: all var(--transition-smooth);
+}
+
+.belfry-panel:hover {
+  border-color: var(--glass-border-hover);
+  box-shadow: 0 0 20px var(--accent-dim);
+}
+
+/* Neon Buttons & Active States */
+.belfry-button {
+  background: var(--accent-dim);
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  border-radius: var(--btn-radius);
+  font-family: var(--font-mono);
+  transition: all var(--transition-fast);
+  cursor: pointer;
+}
+
+.belfry-button:hover {
+  background: var(--accent);
+  color: var(--bg-dark);
+  box-shadow: 0 0 12px var(--accent-glow);
 }
 
 /* ── Cesium Container ─────────────────────────── */
