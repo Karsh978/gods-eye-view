@@ -2,39 +2,34 @@
    GOD'S EYE VIEW — Dark Sci-Fi UI
    Apple meets Blade Runner
    ═══════════════════════════════════════════════ */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Inter:wght@400;500;600&display=swap');
 
 :root {
-  --bg-dark: #0a0a0f;
-  --glass-bg: rgba(12, 12, 20, 0.72);
-  --glass-border: rgba(255, 255, 255, 0.08);
-  --glass-border-hover: rgba(255, 255, 255, 0.15);
-  --accent: #00d4ff;
-  --accent-dim: rgba(0, 212, 255, 0.15);
-  --accent-glow: rgba(0, 212, 255, 0.4);
-  --text-primary: #e8eaed;
-  --text-secondary: rgba(232, 234, 237, 0.5);
-  --text-dim: rgba(232, 234, 237, 0.3);
-  --font-mono: 'JetBrains Mono', 'SF Mono', 'Fira Code', monospace;
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  --panel-radius: 16px;
-  --btn-radius: 10px;
-  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-smooth: 300ms cubic-bezier(0.4, 0, 0.2, 1);
-  --left-stack-x: 52px;
-  --right-rail-x: 52px;
-  --left-stack-top: 26vh;
-  --left-stack-gap: 72px;
-  --left-collapsed-width: 176px;
-  --display-panel-expanded-width: 272px;
-  --cockpit-radio-collapsed-width: 148px;
-  --cockpit-radio-expanded-width: 232px;
+  /* Failsafe Clean Black & White Palette */
+  --bg-dark: #000000;
+  --bg-surface: #0a0a0a;
+  --glass-bg: rgba(10, 10, 10, 0.85);
+  --glass-border: rgba(255, 255, 255, 0.15);
+  --glass-border-hover: rgba(255, 255, 255, 0.4);
+  
+  /* Replace Cyan with Pure White accents */
+  --accent: #ffffff;
+  --accent-dim: rgba(255, 255, 255, 0.1);
+  --accent-glow: rgba(255, 255, 255, 0.25);
+  
+  --text-primary: #ffffff;
+  --text-secondary: #a1a1aa;
+  --text-dim: #52525b;
+  
+  /* Failsafe Monospace Font */
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-sans: 'Inter', sans-serif;
 }
 
 body {
   background-color: var(--bg-dark);
   color: var(--text-primary);
-  font-family: var(--font-sans);
+  font-family: var(--font-mono); /* Applied Failsafe monospace globally */
   margin: 0;
   overflow: hidden;
 }
@@ -9724,4 +9719,31 @@ body.scene-playback-mode #key-setup {
   color: rgba(255, 190, 170, 1);
   border-color: rgba(255, 170, 150, 0.65);
   outline: none;
+}
+
+/* Override all Cyan/Blue text & borders to Black & White */
+*, *::before, *::after {
+  font-family: var(--font-mono) !important;
+}
+
+/* Force cyan text & HUD titles to white */
+[class*="text-cyan"], [class*="text-teal"], [class*="sky"] {
+  color: #ffffff !important;
+}
+
+/* Force cyan/blue borders to white/gray */
+[class*="border-cyan"], [class*="border-teal"], [class*="sky"] {
+  border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+/* Active Button States -> Solid White Background with Black Text */
+.bg-cyan-500, .bg-teal-500, [class*="bg-cyan"], [class*="bg-teal"] {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3) !important;
+}
+
+/* Panel Containers -> Dark Glass with Sharp White Border */
+div[class*="bg-"] {
+  border-color: rgba(255, 255, 255, 0.18) !important;
 }
