@@ -1,29 +1,44 @@
-/* ═══════════════════════════════════════════════
-   GOD'S EYE VIEW — Dark Sci-Fi UI
-   Apple meets Blade Runner
-   ═══════════════════════════════════════════════ */
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Inter:wght@400;500;600&display=swap');
+/* MONOCHROME THEME HARD-LOCK */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&display=swap');
 
 :root {
-  /* Failsafe Clean Black & White Palette */
-  --bg-dark: #000000;
-  --bg-surface: #0a0a0a;
-  --glass-bg: rgba(10, 10, 10, 0.85);
-  --glass-border: rgba(255, 255, 255, 0.15);
-  --glass-border-hover: rgba(255, 255, 255, 0.4);
+  /* Override Cyan, Teal, Green System Variables to Monochrome */
+  --color-cyan-500: #ffffff !important;
+  --color-cyan-400: #ffffff !important;
+  --color-teal-500: #ffffff !important;
+  --color-teal-400: #ffffff !important;
+  --color-green-500: #ffffff !important;
+  --color-emerald-500: #ffffff !important;
   
-  /* Replace Cyan with Pure White accents */
-  --accent: #ffffff;
-  --accent-dim: rgba(255, 255, 255, 0.1);
-  --accent-glow: rgba(255, 255, 255, 0.25);
+  --accent: #ffffff !important;
+  --accent-glow: rgba(255, 255, 255, 0.2) !important;
+  --primary: #ffffff !important;
   
-  --text-primary: #ffffff;
-  --text-secondary: #a1a1aa;
-  --text-dim: #52525b;
-  
-  /* Failsafe Monospace Font */
-  --font-mono: 'JetBrains Mono', monospace;
-  --font-sans: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace !important;
+  --font-sans: 'JetBrains Mono', monospace !important;
+}
+
+/* Force All Fonts Globally */
+*, body, button, input, select, textarea {
+  font-family: 'JetBrains Mono', monospace !important;
+}
+
+/* Eliminate Remaining Colors Without Affecting Modal Positioning */
+[class*="text-cyan"], [class*="text-teal"], [class*="text-green"], [class*="text-emerald"], [class*="text-sky"] {
+  color: #ffffff !important;
+}
+
+[class*="bg-cyan"], [class*="bg-teal"], [class*="bg-green"], [class*="bg-emerald"], [class*="bg-sky"] {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+/* Scrollbar B&W */
+::-webkit-scrollbar-thumb {
+  background: #ffffff !important;
+}
+::-webkit-scrollbar-track {
+  background: #000000 !important;
 }
 
 body {
