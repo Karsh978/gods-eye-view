@@ -9754,8 +9754,43 @@ body.scene-playback-mode #key-setup {
 [class*="border-green"] {
   border-color: rgba(255, 255, 255, 0.3) !important;
 }
+/* PURE COLOR-ONLY MONOCHROME FIX (PRESERVES ORIGINAL LAYOUT & MODALS) */
 
-/* 3. Fix Custom Scrollbars (No Blue Color) */
+/* 1. Global Font */
+*, body, button, input, select, textarea {
+ font-family: 'JetBrains Mono', monospace !important;
+}
+
+/* 2. Convert all Cyan, Teal, Green, and Blue text to Crisp White */
+[class*="text-cyan"], 
+[class*="text-teal"], 
+[class*="text-green"], 
+[class*="text-sky"], 
+[class*="text-blue"],
+[class*="text-emerald"] {
+  color: #ffffff !important;
+}
+
+/* 3. Convert all Cyan, Teal, Green, and Blue backgrounds to Solid White / Black */
+[class*="bg-cyan"], 
+[class*="bg-teal"], 
+[class*="bg-green"], 
+[class*="bg-sky"], 
+[class*="bg-blue"],
+[class*="bg-emerald"] {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+/* 4. Neutralize Borders */
+[class*="border-cyan"], 
+[class*="border-teal"], 
+[class*="border-green"], 
+[class*="border-sky"] {
+  border-color: rgba(255, 255, 255, 0.25) !important;
+}
+
+/* 5. Clean Custom Scrollbar (No Blue/Green) */
 ::-webkit-scrollbar {
   width: 4px !important;
   height: 4px !important;
@@ -9766,16 +9801,4 @@ body.scene-playback-mode #key-setup {
 ::-webkit-scrollbar-thumb {
   background: #ffffff !important;
   border-radius: 2px !important;
-}
-
-/* 4. Panel Dark Glassmorphism */
-[class*="bg-slate"], [class*="bg-zinc"], [class*="bg-gray"] {
-  background-color: rgba(8, 8, 10, 0.88) !important;
-  border-color: rgba(255, 255, 255, 0.15) !important;
-}
-
-/* 5. Retain Cesium 3D Globe */
-#cesiumContainer, canvas {
-  background: transparent !important;
-  filter: none !important;
 }
