@@ -9748,36 +9748,37 @@ div[class*="bg-"] {
   border-color: rgba(255, 255, 255, 0.18) !important;
 }
 
+/* SAFE MONOCHROME UI FIX - Restores 3D Map View */
 
-/* NUCLEAR MONOCHROME OVERRIDE */
-@layer base, components, utilities {
-  *, ::before, ::after {
-    font-family: 'JetBrains Mono', monospace !important;
-  }
+/* 1. Global Font */
+*, body, button, input {
+  font-family: 'JetBrains Mono', monospace !important;
 }
 
-/* Force all text elements, SVG fills, and borders to white */
-body * {
+/* 2. Target ONLY HUD panels for Dark Backgrounds (Leaves Cesium Canvas untouched) */
+.hud-panel, 
+[class*="panel"], 
+[class*="sidebar"], 
+[class*="menu"],
+[class*="cockpit"],
+header, 
+footer {
+  background-color: rgba(10, 10, 10, 0.85) !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+/* 3. Convert all Teal/Cyan text and icons to Crisp White */
+[class*="text-cyan"], [class*="text-teal"], [class*="text-sky"], [class*="text-emerald"] {
   color: #ffffff !important;
-  fill: #ffffff !important;
 }
 
-/* Force active/highlighted elements to pure white background with black text */
-[class*="active"], 
-[class*="selected"],
-[class*="bg-cyan"], 
-[class*="bg-teal"], 
-[class*="bg-green"],
-[class*="text-cyan"],
-[class*="text-teal"],
-[class*="text-green"] {
+/* 4. Active buttons & selections -> White background with Black text */
+[class*="bg-cyan"], [class*="bg-teal"], [class*="bg-emerald"] {
   background-color: #ffffff !important;
   color: #000000 !important;
-  border-color: #ffffff !important;
 }
 
-/* Force dark glass backgrounds */
-[class*="bg-black"], [class*="bg-slate"], [class*="bg-zinc"], div {
-  background-color: rgba(0, 0, 0, 0.85);
-  border-color: rgba(255, 255, 255, 0.2) !important;
+/* 5. Force Map Canvas Container to stay transparent */
+#cesiumContainer, .cesium-viewer, canvas {
+  background: transparent !important;
 }
