@@ -1522,7 +1522,7 @@ function paintProjectionPlaceholder(ctx, camera, health = null) {
   const city = String(camera?.city || 'GLOBAL');
   const status = String(health?.message || health?.status || camera?.feedType || 'NO FEED').toUpperCase();
 
-  ctx.strokeStyle = 'rgba(0, 220, 255, 0.24)';
+  ctx.strokeStyle = 'rgba(255, 255, 255, 0.24)';
   ctx.lineWidth = 2;
   ctx.strokeRect(18, 18, w - 36, h - 36);
   ctx.strokeRect(36, 36, w - 72, h - 72);
