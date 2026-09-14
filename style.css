@@ -10034,3 +10034,124 @@ code, pre, kbd, samp, span, div, p, h1, h2, h3, h4, h5, h6, a, strong, b {
   --tw-shadow-color: rgba(255, 255, 255, 0.2) !important;
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.25) !important;
 }
+
+/* ===== FIX 1: Bottom dock blue boxes → mono ===== */
+#command-dock > #gev-voice-control {
+  background: rgba(10, 10, 10, 0.94) !important;
+  border-color: rgba(255, 255, 255, 0.35) !important;
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.56),
+    0 0 0 1px rgba(255, 255, 255, 0.08) inset !important;
+}
+
+#command-dock #gev-voice-button {
+  background: rgba(255, 255, 255, 0.04) !important;
+  border-color: rgba(255, 255, 255, 0.35) !important;
+}
+
+#command-dock .gev-mic-orbit {
+  background: rgba(255, 255, 255, 0.04) !important;
+  border-color: rgba(255, 255, 255, 0.45) !important;
+  box-shadow: 0 0 0 0.18rem rgba(255, 255, 255, 0.05) !important;
+}
+
+#command-dock .gev-voice-visualizer span {
+  background: linear-gradient(to top, #a3a3a3, #ffffff) !important;
+  box-shadow: 0 0 0.35rem rgba(255, 255, 255, 0.3) !important;
+}
+
+#command-dock .gev-voice-visualizer {
+  border-bottom-color: rgba(255, 255, 255, 0.35) !important;
+}
+
+/* Blue video-type chip / GIF chip bottom right */
+#command-dock [class*="blue"],
+#command-dock [class*="cyan"],
+#command-dock [class*="sky"] {
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+/* ===== FIX 2: All panel text forced white ===== */
+#data-panel, #data-panel *,
+#cctv-panel, #cctv-panel *,
+#scene-panel, #scene-panel *,
+#global-context-panel, #global-context-panel *,
+#pp-toggles, #pp-toggles *,
+#command-dock, #command-dock *,
+#left-panel-stack, #left-panel-stack *,
+#right-context-rail, #right-context-rail * {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* Labels, headers, subtext — slightly dimmer white */
+#data-panel .data-name,
+#data-panel .data-count,
+#data-panel .data-toggle-meta,
+#cctv-panel .cctv-summary-label,
+#cctv-panel #cctv-meta,
+#scene-panel .scene-shot-meta,
+#pp-toggles .pp-label,
+#pp-toggles .pp-header-label {
+  color: rgba(255, 255, 255, 0.72) !important;
+}
+
+/* Never allow pure black text on dark backgrounds */
+#data-panel [style*="color: #000"],
+#cctv-panel [style*="color: #000"],
+#scene-panel [style*="color: #000"],
+#pp-toggles [style*="color: #000"],
+#command-dock [style*="color: #000"] {
+  color: #ffffff !important;
+}
+
+/* Exception: active buttons keep black text on white bg */
+.style-btn.active,
+.pp-toggle-btn.active,
+.data-toggle-btn.active,
+.context-mode-button.active,
+.panel-layer-toggle.active {
+  color: #000000 !important;
+}
+.style-btn.active *,
+.pp-toggle-btn.active *,
+.data-toggle-btn.active *,
+.context-mode-button.active *,
+.panel-layer-toggle.active * {
+  color: #000000 !important;
+}
+
+/* ===== FIX 4: Prevent panel overlap ===== */
+#left-panel-stack {
+  /* Stack gap badhao taaki panels ek dusre ke upar na chadhein */
+  gap: 14px;
+}
+
+#left-panel-stack > #data-panel,
+#left-panel-stack > #cctv-panel,
+#left-panel-stack > #scene-panel,
+#left-panel-stack > #global-context-panel {
+  /* Collapsed panels ko shrink hone se rok do */
+  flex-shrink: 0;
+}
+
+/* ===== FIX 5: Kill all inline black/hidden text ===== */
+*[style*="color: rgb(0, 0, 0)"],
+*[style*="color: rgb(0,0,0)"],
+*[style*="color: #000"],
+*[style*="color: #0a0a0a"],
+*[style*="color: black"],
+*[style*="color:black"] {
+  color: #ffffff !important;
+}
+
+/* Cyan sab jagah kill */
+*[style*="color: rgb(0, 212, 255)"],
+*[style*="color: rgb(0,212,255)"],
+*[style*="color: rgb(0, 255, 255)"],
+*[style*="color: rgb(0,255,255)"],
+*[style*="color: #00d4ff"],
+*[style*="color: #00ffff"] {
+  color: #ffffff !important;
+}

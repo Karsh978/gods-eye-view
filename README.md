@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🌐 God's Eye View
+#  God's Eye View
 
 [![CI](https://github.com/bilawalsidhu/gods-eye-view/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/bilawalsidhu/gods-eye-view/actions/workflows/ci.yml)
 
@@ -20,7 +20,7 @@ Photorealistic 3D globe. Live aircraft, ships, satellites, earthquakes, traffic,
 
 [![Reached #1 on GitHub Trending](https://img.shields.io/badge/%231_GitHub_Trending-thank_you!-F0A63C?style=flat-square&logo=github)](https://x.com/bilawalsidhu/status/2093798887815348521)
 
-🏆 **Reached #1 on GitHub Trending, daily and weekly · August 2026**
+ **Reached #1 on GitHub Trending, daily and weekly · August 2026**
 
 **[#8 Product of the Day](https://www.producthunt.com/products/god-s-eye-view?launch=god-s-eye-view)** · Hunted by Chris Messina, creator of the hashtag
 
@@ -40,7 +40,7 @@ Photorealistic 3D globe. Live aircraft, ships, satellites, earthquakes, traffic,
 
 ---
 
-## 🌍 Why This Exists
+##  Why This Exists
 
 God's Eye View brings public signals into one explorable globe. Track the world live. Talk to it. Break it. Extend it.
 
@@ -69,7 +69,7 @@ Start with the included data sources, then add your own. Each layer is a separat
 - **🌐 Global Context:** Stage the full situational picture with one switch — and get your exact view back when you leave.
 - **🎥 Scene director:** Capture cinematic camera tours for clips and demos.
 - **🔗 Share Links:** Camera, style, layers, and even one tracked target serialize into a URL — a live target is a handoff, not a bookmark.
-- **🏠 Reset Globe:** One control — or one sentence — back to the full Earth.
+- ** Reset Globe:** One control — or one sentence — back to the full Earth.
 
 ---
 
