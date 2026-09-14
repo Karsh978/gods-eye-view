@@ -10151,7 +10151,39 @@ code, pre, kbd, samp, span, div, p, h1, h2, h3, h4, h5, h6, a, strong, b {
 *[style*="color: rgb(0,212,255)"],
 *[style*="color: rgb(0, 255, 255)"],
 *[style*="color: rgb(0,255,255)"],
-*[style*="color: #00d4ff"],
-*[style*="color: #00ffff"] {
+*[style*="color: #ffffff"],
+*[style*="color: #ffffff"] {
   color: #ffffff !important;
+}
+
+/* ===== Fix: Title bar subtitle "NO PLACE LEFT BEHIND" white karo ===== */
+#title-bar .subtitle,
+#title-bar p,
+#title-bar .tagline,
+#title-bar small {
+  color: rgba(255, 255, 255, 0.7) !important;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.15) !important;
+}
+
+/* Aur agar wo <h1> ke andar span hai */
+#title-bar h1 span:not(.title-accent):not(.title-logo) {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* Agar Tailwind class "text-black" ya "text-gray-900" laga hai */
+#title-bar [class*="text-black"],
+#title-bar [class*="text-gray-9"],
+#title-bar [class*="text-zinc-9"],
+#title-bar [class*="text-neutral-9"] {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* Inline style color: #000 ya black */
+#title-bar [style*="color: #000"],
+#title-bar [style*="color: black"],
+#title-bar [style*="color:#000"],
+#title-bar [style*="color:black"],
+#title-bar [style*="color: rgb(0, 0, 0)"],
+#title-bar [style*="color:rgb(0,0,0)"] {
+  color: rgba(255, 255, 255, 0.7) !important;
 }
