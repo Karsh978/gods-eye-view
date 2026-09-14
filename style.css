@@ -10187,3 +10187,13 @@ code, pre, kbd, samp, span, div, p, h1, h2, h3, h4, h5, h6, a, strong, b {
 #title-bar [style*="color:rgb(0,0,0)"] {
   color: rgba(255, 255, 255, 0.7) !important;
 }
+
+/* ===== FIX: Blue logo → white mono ===== */
+.title-logo,
+.brand-logo,
+#title-bar img,
+#title-bar svg,
+header img,
+header svg {
+  filter: grayscale(1) brightness(2) contrast(1.2) !important;
+}
