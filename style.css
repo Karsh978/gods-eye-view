@@ -10198,3 +10198,63 @@ header svg {
   filter: grayscale(1) brightness(2) contrast(1.2) !important;
 }
 
+
+/* ============================================================
+   LAYOUT FIX: Move CONTEXT + DISPLAY panels to right side
+   Left side: DATA LAYERS + SCENES only
+   Right side: DISPLAY + CONTEXT + INTEL HUD
+   ============================================================ */
+
+/* CONTEXT panel ? right side, below DISPLAY */
+#left-panel-stack > #global-context-panel,
+#left-panel-stack > #global-context-panel.collapsed,
+#left-panel-stack #global-context-panel {
+  position: fixed !important;
+  top: calc(2vh + 8rem) !important;
+  right: 20px !important;
+  left: auto !important;
+  bottom: auto !important;
+  width: 330px !important;
+  max-height: 42vh !important;
+  z-index: 101 !important;
+}
+
+/* Ensure DISPLAY panel stays at top-right */
+#right-context-rail,
+#right-context-rail > #pp-toggles {
+  top: 2vh !important;
+  right: 20px !important;
+}
+
+/* Left panel stack: only DATA LAYERS + SCENES, no overlap */
+#left-panel-stack {
+  gap: 10px !important;
+  max-height: calc(100vh - 180px) !important;
+  overflow-y: auto !important;
+  scrollbar-width: thin !important;
+}
+
+#left-panel-stack > #data-panel,
+#left-panel-stack > #scene-panel {
+  position: relative !important;
+  flex-shrink: 0 !important;
+  margin-bottom: 8px !important;
+}
+
+/* Hide CONTEXT panel from left stack's flex layout (it's now fixed right) */
+#left-panel-stack > #global-context-panel {
+  flex: 0 0 auto !important;
+}
+
+/* Small screens: reset to stacked layout */
+@media (max-width: 980px) {
+  #left-panel-stack > #global-context-panel,
+  #left-panel-stack #global-context-panel {
+    position: relative !important;
+    top: auto !important;
+    right: auto !important;
+    left: auto !important;
+    width: 100% !important;
+    max-height: none !important;
+  }
+}
